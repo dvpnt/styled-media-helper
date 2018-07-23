@@ -1,8 +1,7 @@
 # 💅 styled-media-helper
 
-This module makes it easy to write media queries in
-[styled-components](https://www.styled-components.com/) for
-[React](https://reactjs.org/).
+This module makes easy to write media queries using
+[styled-components](https://www.styled-components.com/).
 
 ## Installation
 

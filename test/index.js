@@ -1,10 +1,11 @@
+require("babel-register")({only: /src\/index/});
 const assert = require('assert');
 const {
 	BreakpointNotFoundError, NextBreakpointNotFoundError
 } = require('../src/errors');
 const Media = require('../src');
 
-describe('Media class', function() {
+describe('Media class', () => {
 	const sizes = {
 		xs: 20,
 		lg: 100
@@ -12,150 +13,150 @@ describe('Media class', function() {
 
 	const media = new Media(sizes);
 
-	describe('isBreakpoint', function() {
-		describe('with wrong breakpoint', function() {
-			it('check result', function() {
+	describe('isBreakpoint', () => {
+		describe('with wrong breakpoint', () => {
+			it('check result', () => {
 				assert.strictEqual(media._isBreakpoint('wrong'), false);
 			});
 		});
 
-		describe('success', function() {
-			it('check result', function() {
+		describe('success', () => {
+			it('check result', () => {
 				assert.strictEqual(media._isBreakpoint('xs'), true);
 			});
 		});
 	});
 
-	describe('next', function() {
-		describe('no next breakpoint', function() {
-			it('check result', function() {
+	describe('next', () => {
+		describe('no next breakpoint', () => {
+			it('check result', () => {
 				assert.strictEqual(media._next('lg'), undefined);
 			});
 		});
 
-		describe('success', function() {
-			it('check result', function() {
+		describe('success', () => {
+			it('check result', () => {
 				assert.strictEqual(media._next('xs'), 'lg');
 			});
 		});
 	});
 
-	describe('up', function() {
-		describe('with wrong breakpoint', function() {
-			it('check error', function() {
-				assert.throws(function() {
+	describe('up', () => {
+		describe('with wrong breakpoint', () => {
+			it('check error', () => {
+				assert.throws(() => {
 					media.up('wrong')`color: blue;`;
 				}, BreakpointNotFoundError);
 			});
 		});
 
-		describe('success', function() {
-			it('check result', function() {
+		describe('success', () => {
+			it('check result', () => {
 				assert.deepStrictEqual(media.up('xs')`color: blue;`, [
-					'\n\t\t\t\t@media (min-width: ',
+					'@media (min-width:',
 					'20',
-					'px) {\n\t\t\t\t\t',
+					'px){',
 					'color: blue;',
-					'\n\t\t\t\t}\n\t\t\t'
+					'}'
 				]);
 			});
 		});
 	});
 
-	describe('down', function() {
-		describe('with wrong breakpoint', function() {
-			it('check error', function() {
-				assert.throws(function() {
+	describe('down', () => {
+		describe('with wrong breakpoint', () => {
+			it('check error', () => {
+				assert.throws(() => {
 					media.down('wrong')`color: blue;`;
 				}, BreakpointNotFoundError);
 			});
 		});
 
-		describe('with no next breakpoint', function() {
-			it('check error', function() {
-				assert.throws(function() {
+		describe('with no next breakpoint', () => {
+			it('check error', () => {
+				assert.throws(() => {
 					media.down('lg')`color: blue;`;
 				}, NextBreakpointNotFoundError);
 			});
 		});
 
-		describe('success', function() {
-			it('check result', function() {
+		describe('success', () => {
+			it('check result', () => {
 				assert.deepStrictEqual(media.down('xs')`color: blue;`, [
-					'\n\t\t\t\t@media (max-width: ',
+					'@media (max-width:',
 					'99.98',
-					'px) {\n\t\t\t\t\t',
+					'px){',
 					'color: blue;',
-					'\n\t\t\t\t}\n\t\t\t'
+					'}'
 				]);
 			});
 		});
 	});
 
-	describe('between', function() {
-		describe('with wrong min breakpoint', function() {
-			it('check error', function() {
-				assert.throws(function() {
+	describe('between', () => {
+		describe('with wrong min breakpoint', () => {
+			it('check error', () => {
+				assert.throws(() => {
 					media.between('wrong', 'lg')`color: blue;`;
 				}, BreakpointNotFoundError);
 			});
 		});
 
-		describe('with wrong max breakpoint', function() {
-			it('check error', function() {
-				assert.throws(function() {
+		describe('with wrong max breakpoint', () => {
+			it('check error', () => {
+				assert.throws(() => {
 					media.between('xs', 'wrong')`color: blue;`;
 				}, BreakpointNotFoundError);
 			});
 		});
 
-		describe('success', function() {
-			it('check result', function() {
+		describe('success', () => {
+			it('check result', () => {
 				assert.deepStrictEqual(media.between('xs', 'lg')`color: blue;`, [
-					'\n\t\t\t\t@media (\n\t\t\t\t\tmin-width: ',
+					'@media ( min-width:',
 					'20',
-					'px\n\t\t\t\t) and (\n\t\t\t\t\tmax-width: ',
+					'px ) and ( max-width:',
 					'99.98',
-					"px\n\t\t\t\t) {\n\t\t\t\t\t",
+					"px ){",
 					'color: blue;',
-					'\n\t\t\t\t}\n\t\t\t'
+					'}'
 				]);
 			});
 		});
 	});
 
-	describe('only', function() {
-		describe('with wrong breakpoint', function() {
-			it('check error', function() {
-				assert.throws(function() {
+	describe('only', () => {
+		describe('with wrong breakpoint', () => {
+			it('check error', () => {
+				assert.throws(() => {
 					media.only('wrong')`color: blue;`;
 				}, BreakpointNotFoundError);
 			});
 		});
 
-		describe('success', function() {
-			describe('without next breakpoint', function() {
-				it('check result', function() {
+		describe('success', () => {
+			describe('without next breakpoint', () => {
+				it('check result', () => {
 					assert.deepStrictEqual(media.only('lg')`color: blue;`, [
-						'\n\t\t\t\t@media (min-width: ',
+						'@media (min-width:',
 						'100',
-						"px) {\n\t\t\t\t\t",
+						"px){",
 						'color: blue;',
-						'\n\t\t\t\t}\n\t\t\t'
+						'}'
 					]);
 				});
 			});
 
-			describe('with next breakpoint', function() {
-				it('check result', function() {
+			describe('with next breakpoint', () => {
+				it('check result', () => {
 					assert.deepStrictEqual(media.only('xs')`color: blue;`, [
-						'\n\t\t\t\t@media (\n\t\t\t\t\tmin-width: ',
+						'@media ( min-width:',
 						'20',
-						'px\n\t\t\t\t) and (\n\t\t\t\t\tmax-width: ',
+						'px ) and ( max-width:',
 						'99.98',
-						"px\n\t\t\t\t) {\n\t\t\t\t\t",
+						"px ){",
 						'color: blue;',
-						'\n\t\t\t\t}\n\t\t\t'
+						'}'
 					]);
 				});
 			});
