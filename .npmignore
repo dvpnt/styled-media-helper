@@ -1,0 +1,7 @@
+*.log
+.babelrc
+.eslintignore
+.eslintrc.json
+.gitignore
+.npmignore
+test/
