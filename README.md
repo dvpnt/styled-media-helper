@@ -40,12 +40,12 @@ This library contains follow methods:
 
 Each of these methods is an alias for defined media query:
 
-Method | Output
------- | ------
-`up(breakpoint)` | `@media (min-width: <breakpoint>px)`
-`down(breakpoint)` | `@media (max-width: <next breakpoint>px)`
-`between(breakpoint1, breakpoint2)` | `@media (min-width: <breakpoint1>px) and (max-width: <breakpoint2>px)`
-`only(breakpoint)` | `@media (min-width: <breakpoint>px) and (max-width: <next breakpoint>px)` or `@media (min-width: <breakpoint>px)` (for maximum breakpoint)
+Method | Arguments | Output
+------ | --------- | ------
+`up` | point: string | `@media (min-width: <point>px)`
+`down` | point: string | `@media (max-width: <next point>px)`
+`between` | point1: string, point2: string | `@media (min-width: <point1>px) and (max-width: <poin2>px)`
+`only` | point: string | `@media (min-width: <point>px) and (max-width: <next point>px)` or `@media (min-width: <point>px)` (for maximum breakpoint)
 
 ### up
 

@@ -1,4 +1,3 @@
-require("babel-register")({only: /src\/index/});
 const assert = require('assert');
 const {
 	BreakpointNotFoundError, NextBreakpointNotFoundError
@@ -117,7 +116,7 @@ describe('Media class', () => {
 					'20',
 					'px ) and ( max-width:',
 					'99.98',
-					"px ){",
+					'px ){',
 					'color: blue;',
 					'}'
 				]);
@@ -140,7 +139,7 @@ describe('Media class', () => {
 					assert.deepStrictEqual(media.only('lg')`color: blue;`, [
 						'@media (min-width:',
 						'100',
-						"px){",
+						'px){',
 						'color: blue;',
 						'}'
 					]);
@@ -154,7 +153,7 @@ describe('Media class', () => {
 						'20',
 						'px ) and ( max-width:',
 						'99.98',
-						"px ){",
+						'px ){',
 						'color: blue;',
 						'}'
 					]);

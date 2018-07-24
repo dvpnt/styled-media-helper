@@ -1,4 +1,9 @@
 {
 	"presets": ["env"],
-	"plugins": ["babel-plugin-styled-components"]
+	"plugins": ["babel-plugin-styled-components"],
+	"env": {
+		"test": {
+			"only": ["src/index"]
+		}
+	}
 }
