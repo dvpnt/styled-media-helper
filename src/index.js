@@ -79,10 +79,6 @@ module.exports = class Media {
 	}
 
 	only(breakpoint) {
-		if (!this._isBreakpoint(breakpoint)) {
-			throw new BreakpointNotFoundError(breakpoint);
-		}
-
 		const nextBreakpoint = this._next(breakpoint);
 		return this._isBreakpoint(nextBreakpoint) ?
 			this.between(breakpoint, nextBreakpoint) :

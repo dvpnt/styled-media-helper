@@ -13,13 +13,13 @@ t.test('Media class', (t) => {
 	const media = new Media(sizes);
 
 	t.test('isBreakpoint', (t) => {
-		t.is(media._isBreakpoint('wrong'), false, 'wrong breakpoint');
-		t.is(media._isBreakpoint('xs'), true, 'right breakpoint');
+		t.notOk(media._isBreakpoint('wrong'), 'wrong breakpoint');
+		t.ok(media._isBreakpoint('xs'), 'right breakpoint');
 		t.end();
 	});
 
 	t.test('next', (t) => {
-		t.is(media._next('lg'), undefined, 'has no next breakpoint');
+		t.notOk(media._next('lg'), 'has no next breakpoint');
 		t.is(media._next('xs'), 'lg', 'has next breakpoint');
 		t.end();
 	});
@@ -32,7 +32,7 @@ t.test('Media class', (t) => {
 		);
 		t.same(
 			media.up('xs')`color: blue;`,
-			['@media (min-width:', '20', 'px){', 'color: blue;', '}'],
+			['@media (min-width:', sizes.xs, 'px){', 'color: blue;', '}'],
 			'right breakpoint'
 		);
 		t.end();
@@ -51,7 +51,7 @@ t.test('Media class', (t) => {
 		);
 		t.same(
 			media.down('xs')`color: blue;`,
-			['@media (max-width:', '99.98', 'px){', 'color: blue;', '}'],
+			['@media (max-width:', sizes.lg - 0.02, 'px){', 'color: blue;', '}'],
 			'right breakpoint'
 		);
 		t.end();
@@ -71,8 +71,8 @@ t.test('Media class', (t) => {
 		t.same(
 			media.between('xs', 'lg')`color: blue;`,
 			[
-				'@media ( min-width:', '20', 'px ) and ( max-width:', '99.98', 'px ){',
-				'color: blue;', '}'
+				'@media ( min-width:', sizes.xs, 'px ) and ( max-width:',
+				sizes.lg - 0.02, 'px ){', 'color: blue;', '}'
 			],
 			'right breakpoints'
 		);
@@ -80,27 +80,20 @@ t.test('Media class', (t) => {
 	});
 
 	t.test('only', (t) => {
-		t.throws(
-			() => media.only('wrong'),
-			new BreakpointNotFoundError('wrong'),
-			'wrong breakpoint'
+		t.same(
+			media.only('lg')`color: blue;`,
+			['@media (min-width:', sizes.lg, 'px){', 'color: blue;', '}'],
+			'without next breakpoint'
 		);
-		t.test('success', (t) => {
-			t.same(
-				media.only('lg')`color: blue;`,
-				['@media (min-width:', '100', 'px){', 'color: blue;', '}'],
-				'without next breakpoint'
-			);
 
-			t.same(
-				media.only('xs')`color: blue;`,
-				['@media ( min-width:', '20', 'px ) and ( max-width:', '99.98', 'px ){',
-					'color: blue;', '}'
-				],
-				'with next breakpoint'
-			);
-			t.end();
-		});
+		t.same(
+			media.only('xs')`color: blue;`,
+			[
+				'@media ( min-width:', sizes.xs, 'px ) and ( max-width:',
+				sizes.lg - 0.02, 'px ){', 'color: blue;', '}'
+			],
+			'with next breakpoint'
+		);
 		t.end();
 	});
 	t.end();
