@@ -81,7 +81,7 @@ t.test('Media class', (t) => {
 
 	t.test('only', (t) => {
 		t.throws(
-			() => media.only('wrong'),
+			media.only('wrong'),
 			new BreakpointNotFoundError('wrong'),
 			'wrong breakpoint'
 		);
