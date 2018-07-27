@@ -80,11 +80,15 @@ t.test('Media class', (t) => {
 	});
 
 	t.test('only', (t) => {
-		t.throws(
-			media.only('wrong'),
-			new BreakpointNotFoundError('wrong'),
-			'wrong breakpoint'
-		);
+		t.test('fail', (t) => {
+			t.throws(
+				media.only('wrong'),
+				new BreakpointNotFoundError('wrong'),
+				'wrong breakpoint'
+			);
+			t.end();
+		});
+
 		t.test('success', (t) => {
 			t.same(
 				media.only('lg')`color: blue;`,
