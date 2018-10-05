@@ -5,3 +5,5 @@
 .gitignore
 .npmignore
 test/
+tap-snapshots/
+.nyc_output/
