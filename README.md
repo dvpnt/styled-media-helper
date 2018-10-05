@@ -1,6 +1,7 @@
 # 💅 styled-media-helper
 [![Build Status](https://travis-ci.org/dvpnt/styled-media-helper.svg?branch=master)](https://travis-ci.org/dvpnt/styled-media-helper)
 [![Coverage Status](https://coveralls.io/repos/github/dvpnt/styled-media-helper/badge.svg?branch=master)](https://coveralls.io/github/dvpnt/styled-media-helper?branch=master)
+[![NPM Version](https://img.shields.io/npm/v/styled-media-helper.svg)](https://www.npmjs.com/package/styled-media-helper)
 
 This module makes easy to write media queries using
 [styled-components](https://www.styled-components.com/).
