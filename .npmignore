@@ -1,9 +1,12 @@
 *.log
+*.tgz
 .babelrc
 .eslintignore
 .eslintrc.json
 .gitignore
 .npmignore
+.travis.yml
 test/
 tap-snapshots/
 .nyc_output/
+src/

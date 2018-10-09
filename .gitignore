@@ -1,4 +1,5 @@
 *.log
+*.tgz
 dist/
 node_modules/
 .nyc_output/
