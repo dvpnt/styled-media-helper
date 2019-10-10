@@ -23,16 +23,16 @@ const sizes = {
   lg: 1240
 };
 
-const media = new Media(sizes);
+const media = Media(sizes);
 
 module.exports = styled.div`
   width: 100px;
   height: 100px;
   background-color: blue;
 
-  ${media.up('lg')`
+  ${media.up('lg')} {
     width: 150px;
-  `}
+  }
 
   // Output:
   //   @media (min-width: 1240px) {
@@ -40,9 +40,9 @@ module.exports = styled.div`
   //   }
 
 
-  ${media.down('sm')`
+  ${media.down('sm')} {
     background-color: black;
-  `}
+  }
 
   // Output:
   //   @media (max-width: 767.98px) {
@@ -50,9 +50,9 @@ module.exports = styled.div`
   //   }
 
 
-  ${media.between('sm', 'lg')`
+  ${media.between('sm', 'lg')} {
     width: 200px;
-  `}
+  }
 
   // Output:
   //   @media (min-width: 320px) and (max-width: 1239.98px) {
@@ -60,9 +60,9 @@ module.exports = styled.div`
   //   }
 
 
-  ${media.only('md')`
+  ${media.only('md')} {
     background-color: green;
-  `}
+  }
 
   // Output:
   //   @media (min-width: 768px) and (max-width: 1239.98px) {
@@ -70,19 +70,19 @@ module.exports = styled.div`
   //   }
 
 
-  ${media.only('md')`
+  ${media.only('sm')} {
     background-color: green;
-  `}
+  }
 
   // Output:
-  //   @media (min-width: 768px) and (max-width: 1239.98px) {
+  //   @media (min-width: 320px) and (max-width: 767.98px) {
   //     background-color: green;
   //   }
 
 
-  ${media.only('lg')`
+  ${media.only('lg')} {
     border-radius: 15px;
-  `}
+  }
 
   // Output:
   //   @media (min-width: 1240px) {

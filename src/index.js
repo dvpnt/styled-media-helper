@@ -1,9 +1,9 @@
-const {css} = require('styled-components');
 const {
-	BreakpointNotFoundError, NextBreakpointNotFoundError
+	BreakpointNotFoundError,
+	NextBreakpointNotFoundError
 } = require('./errors');
 
-module.exports = class Media {
+class Media {
 	constructor(sizes) {
 		this.sizes = sizes;
 	}
@@ -20,17 +20,11 @@ module.exports = class Media {
 	}
 
 	up(breakpoint) {
-		return (...args) => {
-			if (!this._isBreakpoint(breakpoint)) {
-				throw new BreakpointNotFoundError(breakpoint);
-			}
+		if (!this._isBreakpoint(breakpoint)) {
+			throw new BreakpointNotFoundError(breakpoint);
+		}
 
-			return css`
-				@media (min-width: ${this.sizes[breakpoint]}px) {
-					${css(...args)}
-				}
-			`;
-		};
+		return `@media (min-width: ${this.sizes[breakpoint]}px)`;
 	}
 
 	// The max-width value is calculated as the next breakpoint less 0.02px.
@@ -38,44 +32,29 @@ module.exports = class Media {
 	// Uses 0.02px rather than 0.01px to work around a current rounding bug
 	// in Safari. See https://bugs.webkit.org/show_bug.cgi?id=178261
 	down(breakpoint) {
-		return (...args) => {
-			if (!this._isBreakpoint(breakpoint)) {
-				throw new BreakpointNotFoundError(breakpoint);
-			}
+		if (!this._isBreakpoint(breakpoint)) {
+			throw new BreakpointNotFoundError(breakpoint);
+		}
 
-			const nextBreakpoint = this._next(breakpoint);
-			if (!this._isBreakpoint(nextBreakpoint)) {
-				throw new NextBreakpointNotFoundError(breakpoint);
-			}
+		const nextBreakpoint = this._next(breakpoint);
+		if (!this._isBreakpoint(nextBreakpoint)) {
+			throw new NextBreakpointNotFoundError(breakpoint);
+		}
 
-			return css`
-				@media (max-width: ${this.sizes[nextBreakpoint] - 0.02}px) {
-					${css(...args)}
-				}
-			`;
-		};
+		return `@media (max-width: ${this.sizes[nextBreakpoint] - 0.02}px)`;
 	}
 
 	between(min, max) {
-		return (...args) => {
-			if (!this._isBreakpoint(min)) {
-				throw new BreakpointNotFoundError(min);
-			}
+		if (!this._isBreakpoint(min)) {
+			throw new BreakpointNotFoundError(min);
+		}
 
-			if (!this._isBreakpoint(max)) {
-				throw new BreakpointNotFoundError(max);
-			}
+		if (!this._isBreakpoint(max)) {
+			throw new BreakpointNotFoundError(max);
+		}
 
-			return css`
-				@media (
-					min-width: ${this.sizes[min]}px
-				) and (
-					max-width: ${this.sizes[max] - 0.02}px
-				) {
-					${css(...args)}
-				}
-			`;
-		};
+		return `@media (min-width: ${this.sizes[min]}px) and
+			(max-width: ${this.sizes[max] - 0.02}px)`;
 	}
 
 	only(breakpoint) {
@@ -84,4 +63,6 @@ module.exports = class Media {
 			this.between(breakpoint, nextBreakpoint) :
 			this.up(breakpoint);
 	}
-};
+}
+
+module.exports = (sizes) => new Media(sizes);

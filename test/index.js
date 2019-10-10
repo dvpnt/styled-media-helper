@@ -10,10 +10,10 @@ t.test('Media class', (t) => {
 		lg: 100
 	};
 
-	const media = new Media(sizes);
+	const media = Media(sizes);
 
-	function clean(styles) {
-		return styles.map((style) => style.replace(/[\n\t]/g, ''));
+	function clean(string) {
+		return string.replace(/[\n\t]/g, '');
 	}
 
 	t.test('_isBreakpoint', (t) => {
@@ -30,49 +30,49 @@ t.test('Media class', (t) => {
 
 	t.test('up', (t) => {
 		t.throws(
-			media.up('wrong'),
+			() => media.up('wrong'),
 			new BreakpointNotFoundError('wrong'),
 			'wrong breakpoint'
 		);
 
-		t.matchSnapshot(clean(media.up('xs')`color: blue;`), 'right breakpoint');
+		t.matchSnapshot(clean(media.up('xs')), 'right breakpoint');
 
 		t.end();
 	});
 
 	t.test('down', (t) => {
 		t.throws(
-			media.down('wrong'),
+			() => media.down('wrong'),
 			new BreakpointNotFoundError('wrong'),
 			'wrong breakpoint'
 		);
 
 		t.throws(
-			media.down('lg'),
+			() => media.down('lg'),
 			new NextBreakpointNotFoundError('lg'),
 			'has no next breakpoint'
 		);
 
-		t.matchSnapshot(clean(media.down('xs')`color: blue;`), 'right breakpoint');
+		t.matchSnapshot(clean(media.down('xs')), 'right breakpoint');
 
 		t.end();
 	});
 
 	t.test('between', (t) => {
 		t.throws(
-			media.between('wrong min', 'lg'),
+			() => media.between('wrong min', 'lg'),
 			new BreakpointNotFoundError('wrong min'),
 			'wrong min breakpoint'
 		);
 
 		t.throws(
-			media.between('lg', 'wrong max'),
+			() => media.between('lg', 'wrong max'),
 			new BreakpointNotFoundError('wrong max'),
 			'wrong max breakpoint'
 		);
 
 		t.matchSnapshot(
-			clean(media.between('xs', 'lg')`color: blue;`),
+			clean(media.between('xs', 'lg')),
 			'right breakpoints'
 		);
 
@@ -82,7 +82,7 @@ t.test('Media class', (t) => {
 	t.test('only', (t) => {
 		t.test('fail', (t) => {
 			t.throws(
-				media.only('wrong'),
+				() => media.only('wrong'),
 				new BreakpointNotFoundError('wrong'),
 				'wrong breakpoint'
 			);
@@ -92,12 +92,12 @@ t.test('Media class', (t) => {
 
 		t.test('success', (t) => {
 			t.matchSnapshot(
-				clean(media.only('lg')`color: blue;`),
+				clean(media.only('lg')),
 				'without next breakpoint'
 			);
 
 			t.matchSnapshot(
-				clean(media.only('xs')`color: blue;`),
+				clean(media.only('xs')),
 				'with next breakpoint'
 			);
 
