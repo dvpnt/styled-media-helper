@@ -15,15 +15,13 @@ Inspired by [Bootstrap](https://getbootstrap.com/) `media-breakpoint-...` mixins
 
 ```js
 const styled = require('styled-components').default;
-const Media = require('styled-media-helper');
+const mediaHelper = require('styled-media-helper');
 
-const sizes = {
+const media = mediaHelper({
   sm: 320,
   md: 768,
   lg: 1240
-};
-
-const media = Media(sizes);
+});
 
 module.exports = styled.div`
   width: 100px;
