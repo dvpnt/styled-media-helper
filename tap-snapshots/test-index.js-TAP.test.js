@@ -5,34 +5,117 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.js TAP Media class up > right breakpoint 1`] = `
-[ '@media (min-width: ', '20', 'px) {', 'color: blue;', '}' ]
+exports[`test/index.js TAP Media class between > right breakpoints 1`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "sc-htpNat",
+    "isStatic": true,
+    "rules": Array [
+      "@media (min-width: 20px) and\\n\\t\\t\\t(max-width: 99.98px)",
+      " {color: #000;}",
+    ],
+  },
+  "displayName": "styled.div",
+  "foldedComponentIds": Array [],
+  "render": Function (props, ref),
+  "styledComponentId": "sc-htpNat",
+  "target": "div",
+  "toString": Function (),
+  "warnTooManyClasses": Function (className),
+  "withComponent": Function withComponent(tag),
+}
 `
 
 exports[`test/index.js TAP Media class down > right breakpoint 1`] = `
-[ '@media (max-width: ', '99.98', 'px) {', 'color: blue;', '}' ]
-`
-
-exports[`test/index.js TAP Media class between > right breakpoints 1`] = `
-[ '@media (min-width: ',
-  '20',
-  'px) and (max-width: ',
-  '99.98',
-  'px) {',
-  'color: blue;',
-  '}' ]
-`
-
-exports[`test/index.js TAP Media class only success > without next breakpoint 1`] = `
-[ '@media (min-width: ', '100', 'px) {', 'color: blue;', '}' ]
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "sc-bwzfXH",
+    "isStatic": true,
+    "rules": Array [
+      "@media (max-width: 99.98px)",
+      " {color: #000;}",
+    ],
+  },
+  "displayName": "styled.div",
+  "foldedComponentIds": Array [],
+  "render": Function (props, ref),
+  "styledComponentId": "sc-bwzfXH",
+  "target": "div",
+  "toString": Function (),
+  "warnTooManyClasses": Function (className),
+  "withComponent": Function withComponent(tag),
+}
 `
 
 exports[`test/index.js TAP Media class only success > with next breakpoint 1`] = `
-[ '@media (min-width: ',
-  '20',
-  'px) and (max-width: ',
-  '99.98',
-  'px) {',
-  'color: blue;',
-  '}' ]
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "sc-ifAKCX",
+    "isStatic": true,
+    "rules": Array [
+      "@media (min-width: 20px) and\\n\\t\\t\\t(max-width: 99.98px)",
+      " {color: #000;}",
+    ],
+  },
+  "displayName": "styled.div",
+  "foldedComponentIds": Array [],
+  "render": Function (props, ref),
+  "styledComponentId": "sc-ifAKCX",
+  "target": "div",
+  "toString": Function (),
+  "warnTooManyClasses": Function (className),
+  "withComponent": Function withComponent(tag),
+}
+`
+
+exports[`test/index.js TAP Media class only success > without next breakpoint 1`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "sc-bxivhb",
+    "isStatic": true,
+    "rules": Array [
+      "@media (min-width: 100px)",
+      " {color: #000;}",
+    ],
+  },
+  "displayName": "styled.div",
+  "foldedComponentIds": Array [],
+  "render": Function (props, ref),
+  "styledComponentId": "sc-bxivhb",
+  "target": "div",
+  "toString": Function (),
+  "warnTooManyClasses": Function (className),
+  "withComponent": Function withComponent(tag),
+}
+`
+
+exports[`test/index.js TAP Media class up > right breakpoint 1`] = `
+Object {
+  "$$typeof": Symbol(react.forward_ref),
+  "attrs": Array [],
+  "componentStyle": ComponentStyle {
+    "componentId": "sc-bdVaJa",
+    "isStatic": true,
+    "rules": Array [
+      "@media (min-width: 20px)",
+      " {color: #000;}",
+    ],
+  },
+  "displayName": "styled.div",
+  "foldedComponentIds": Array [],
+  "render": Function (props, ref),
+  "styledComponentId": "sc-bdVaJa",
+  "target": "div",
+  "toString": Function (),
+  "warnTooManyClasses": Function (className),
+  "withComponent": Function withComponent(tag),
+}
 `

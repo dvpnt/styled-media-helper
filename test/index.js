@@ -1,3 +1,4 @@
+const styled = require('styled-components').default;
 const t = require('tap');
 const Media = require('../src');
 const {
@@ -10,11 +11,7 @@ t.test('Media class', (t) => {
 		lg: 100
 	};
 
-	const media = new Media(sizes);
-
-	function clean(styles) {
-		return styles.map((style) => style.replace(/[\n\t]/g, ''));
-	}
+	const media = Media(sizes);
 
 	t.test('_isBreakpoint', (t) => {
 		t.notOk(media._isBreakpoint('wrong'), 'wrong breakpoint');
@@ -30,49 +27,54 @@ t.test('Media class', (t) => {
 
 	t.test('up', (t) => {
 		t.throws(
-			media.up('wrong'),
+			() => styled.div`${media.up('wrong')} {color: #000;}`,
 			new BreakpointNotFoundError('wrong'),
 			'wrong breakpoint'
 		);
 
-		t.matchSnapshot(clean(media.up('xs')`color: blue;`), 'right breakpoint');
+		t.matchSnapshot(
+			styled.div`${media.up('xs')} {color: #000;}`,
+			'right breakpoint');
 
 		t.end();
 	});
 
 	t.test('down', (t) => {
 		t.throws(
-			media.down('wrong'),
+			() => styled.div`${media.down('wrong')} {color: #000;}`,
 			new BreakpointNotFoundError('wrong'),
 			'wrong breakpoint'
 		);
 
 		t.throws(
-			media.down('lg'),
+			() => styled.div`${media.down('lg')} {color: #000;}`,
 			new NextBreakpointNotFoundError('lg'),
 			'has no next breakpoint'
 		);
 
-		t.matchSnapshot(clean(media.down('xs')`color: blue;`), 'right breakpoint');
+		t.matchSnapshot(
+			styled.div`${media.down('xs')} {color: #000;}`,
+			'right breakpoint'
+		);
 
 		t.end();
 	});
 
 	t.test('between', (t) => {
 		t.throws(
-			media.between('wrong min', 'lg'),
+			() => styled.div`${media.between('wrong min', 'lg')} {color: #000;}`,
 			new BreakpointNotFoundError('wrong min'),
 			'wrong min breakpoint'
 		);
 
 		t.throws(
-			media.between('lg', 'wrong max'),
+			() => styled.div`${media.between('lg', 'wrong max')} {color: #000;}`,
 			new BreakpointNotFoundError('wrong max'),
 			'wrong max breakpoint'
 		);
 
 		t.matchSnapshot(
-			clean(media.between('xs', 'lg')`color: blue;`),
+			styled.div`${media.between('xs', 'lg')} {color: #000;}`,
 			'right breakpoints'
 		);
 
@@ -82,7 +84,7 @@ t.test('Media class', (t) => {
 	t.test('only', (t) => {
 		t.test('fail', (t) => {
 			t.throws(
-				media.only('wrong'),
+				() => styled.div`${media.only('wrong')} {color: #000;}`,
 				new BreakpointNotFoundError('wrong'),
 				'wrong breakpoint'
 			);
@@ -92,12 +94,12 @@ t.test('Media class', (t) => {
 
 		t.test('success', (t) => {
 			t.matchSnapshot(
-				clean(media.only('lg')`color: blue;`),
+				styled.div`${media.only('lg')} {color: #000;}`,
 				'without next breakpoint'
 			);
 
 			t.matchSnapshot(
-				clean(media.only('xs')`color: blue;`),
+				styled.div`${media.only('xs')} {color: #000;}`,
 				'with next breakpoint'
 			);
 
