@@ -41,7 +41,7 @@
     "react": "16.10.2",
     "react-dom": "16.10.2",
     "styled-components": "4.1.3",
-    "tap": "14.10.6"
+    "tap": "14.10.7"
   },
   "peerDependencies": {
     "styled-components": "3.3.3 - 4"
