@@ -1,10 +1,10 @@
-exports.BreakpointNotFoundError = class BreakpointNotFoundError extends Error {
+export const BreakpointNotFoundError = class BreakpointNotFoundError extends Error {
 	constructor(breakpoint) {
 		super(`Breakpoint '${breakpoint}' not found`);
 	}
 };
 
-exports.NextBreakpointNotFoundError =
+export const NextBreakpointNotFoundError =
 	class NextBreakpointNotFoundError extends Error {
 		constructor(breakpoint) {
 			super(`Next breakpoint for '${breakpoint}' not found`);

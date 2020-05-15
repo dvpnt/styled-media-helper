@@ -1,7 +1,7 @@
-const {
+import {
 	BreakpointNotFoundError,
 	NextBreakpointNotFoundError
-} = require('./errors');
+} from './errors';
 
 class Media {
 	constructor(sizes) {
@@ -65,4 +65,4 @@ class Media {
 	}
 }
 
-module.exports = (sizes) => new Media(sizes);
+export default (sizes) => new Media(sizes);

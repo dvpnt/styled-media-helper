@@ -1,9 +1,9 @@
-const styled = require('styled-components').default;
-const t = require('tap');
-const Media = require('../src');
-const {
+import styled from 'styled-components';
+import t from 'tap';
+import Media from '../src';
+import {
 	BreakpointNotFoundError, NextBreakpointNotFoundError
-} = require('../src/errors');
+} from '../src/errors';
 
 t.test('Media class', (t) => {
 	const sizes = {
