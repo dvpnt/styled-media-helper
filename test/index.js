@@ -34,7 +34,8 @@ t.test('Media class', (t) => {
 
 		t.matchSnapshot(
 			styled.div`${media.up('xs')} {color: #000;}`,
-			'right breakpoint');
+			'right breakpoint'
+		);
 
 		t.end();
 	});

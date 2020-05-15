@@ -7,8 +7,8 @@
     "lint": "eslint ./",
     "test": "tap test/*.js --bail --coverage --coverage-report=text --100 --reporter specy",
     "clean": "rm -rf ./dist/*",
-	"build-cjs": "babel src -d dist/cjs --verbose",
-	"build-esm": "NODE_ENV=esm babel src -d dist/esm --verbose",
+    "build-cjs": "babel src -d dist/cjs --verbose",
+    "build-esm": "NODE_ENV=esm babel src -d dist/esm --verbose",
     "build": "npm run clean && npm run build-esm && npm run build-cjs",
     "prepare": "npm run build"
   },
@@ -39,6 +39,7 @@
     "babel-plugin-styled-components": "1.10.7",
     "eslint": "7.0.0",
     "eslint-config-dvpnt": "4.0.3",
+    "eslint-plugin-import": "^2.20.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "4.1.3",

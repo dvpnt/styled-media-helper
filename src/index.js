@@ -37,6 +37,7 @@ class Media {
 		}
 
 		const nextBreakpoint = this._next(breakpoint);
+
 		if (!this._isBreakpoint(nextBreakpoint)) {
 			throw new NextBreakpointNotFoundError(breakpoint);
 		}
@@ -59,6 +60,7 @@ class Media {
 
 	only(breakpoint) {
 		const nextBreakpoint = this._next(breakpoint);
+
 		return this._isBreakpoint(nextBreakpoint) ?
 			this.between(breakpoint, nextBreakpoint) :
 			this.up(breakpoint);

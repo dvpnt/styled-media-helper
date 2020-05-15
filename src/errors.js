@@ -1,8 +1,11 @@
-export const BreakpointNotFoundError = class BreakpointNotFoundError extends Error {
-	constructor(breakpoint) {
-		super(`Breakpoint '${breakpoint}' not found`);
-	}
-};
+/* eslint-disable max-classes-per-file */
+
+export const BreakpointNotFoundError =
+	class BreakpointNotFoundError extends Error {
+		constructor(breakpoint) {
+			super(`Breakpoint '${breakpoint}' not found`);
+		}
+	};
 
 export const NextBreakpointNotFoundError =
 	class NextBreakpointNotFoundError extends Error {
