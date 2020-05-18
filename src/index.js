@@ -1,7 +1,4 @@
-import {
-	BreakpointNotFoundError,
-	NextBreakpointNotFoundError
-} from './errors';
+import {BreakpointNotFoundError, NextBreakpointNotFoundError} from './errors';
 
 class Media {
 	constructor(sizes) {

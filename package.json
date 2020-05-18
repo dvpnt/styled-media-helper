@@ -11,9 +11,9 @@
   "scripts": {
     "lint": "eslint ./",
     "test": "tap test/*.js --bail --coverage --coverage-report=text --100 --reporter specy",
-    "clean": "rm -rf ./dist/*",
+    "clean": "rm -rf ./dist",
     "build-cjs": "babel src --out-dir dist/cjs",
-    "build-esm": "NODE_ENV=esm babel src --out-dir dist/esm ",
+    "build-esm": "NODE_ENV=esm babel src --out-dir dist/esm",
     "build": "npm run clean && run-p -s build-*",
     "prepare": "npm run build"
   },

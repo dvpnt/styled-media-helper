@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import t from 'tap';
 import Media from '../src';
 import {
-	BreakpointNotFoundError, NextBreakpointNotFoundError
+	BreakpointNotFoundError,
+	NextBreakpointNotFoundError
 } from '../src/errors';
 
 t.test('Media class', (t) => {
