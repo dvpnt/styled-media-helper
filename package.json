@@ -2,13 +2,18 @@
   "name": "styled-media-helper",
   "version": "2.0.2",
   "description": "helper for media query",
-  "main": "./dist/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
   "scripts": {
     "lint": "eslint ./",
     "test": "tap test/*.js --bail --coverage --coverage-report=text --100 --reporter specy",
     "clean": "rm -rf ./dist/*",
-    "build-cjs": "babel src -d dist/cjs --out-dir",
-    "build-esm": "NODE_ENV=esm babel src -d dist/esm --out-dir",
+    "build-cjs": "babel src --out-dir dist/cjs",
+    "build-esm": "NODE_ENV=esm babel src --out-dir dist/esm ",
     "build": "npm run clean && run-p -s build-*",
     "prepare": "npm run build"
   },
@@ -52,7 +57,5 @@
   },
   "files": [
     "dist"
-  ],
-  "module": "dist/esm/index.js",
-  "exports": "dist/cjs/index.js"
+  ]
 }
