@@ -2,17 +2,12 @@
   "name": "styled-media-helper",
   "version": "2.0.2",
   "description": "helper for media query",
-  "main": "./dist/esm/index.js",
-  "module": "./dist/esm/index.js",
-  "exports": {
-    "import": "./dist/esm/index.js"
-  },
+  "main": "./dist/index.js",
   "scripts": {
     "lint": "eslint ./",
     "test": "tap test/*.js --bail --coverage --coverage-report=text --100 --reporter specy",
     "clean": "rm -rf ./dist",
-    "build-esm": "NODE_ENV=esm babel src --out-dir dist/",
-    "build": "npm run clean && npm run build-esm",
+    "build": "npm run clean && NODE_ENV=esm babel src --out-dir dist/",
     "prepare": "npm run build"
   },
   "author": "Maxim Shtyr <sh.maxim97@gmail.com>",
