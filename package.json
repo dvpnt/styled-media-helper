@@ -2,6 +2,7 @@
   "name": "styled-media-helper",
   "version": "2.0.2",
   "description": "helper for media query",
+  "type": "module",
   "main": "./dist/index.js",
   "scripts": {
     "lint": "eslint ./",
