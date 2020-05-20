@@ -7,7 +7,7 @@
     "lint": "eslint ./",
     "test": "tap test/*.js --bail --coverage --coverage-report=text --100 --reporter specy",
     "clean": "rm -rf ./dist",
-    "build": "npm run clean && NODE_ENV=esm babel src --out-dir dist/",
+    "build": "npm run clean && babel src --out-dir dist/",
     "prepare": "npm run build"
   },
   "author": "Maxim Shtyr <sh.maxim97@gmail.com>",
