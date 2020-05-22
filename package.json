@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "lint": "eslint ./",
-	"test": "tap test/*.js --bail --coverage --coverage-report=text --100 --reporter specy",
+    "test": "tap test/*.js --bail --coverage --coverage-report=text --100 --reporter specy",
     "clean": "rm -rf ./dist",
     "build": "npm run clean && babel src --out-dir dist/",
     "prepare": "npm run build"
@@ -32,9 +32,8 @@
   ],
   "devDependencies": {
     "@babel/cli": "7.8.4",
-    "@babel/core": "^7.9.6",
+    "@babel/core": "7.9.6",
     "@babel/preset-env": "7.9.6",
-    "@babel/register": "^7.9.0",
     "babel-plugin-styled-components": "1.10.7",
     "eslint": "6.8.0",
     "eslint-config-dvpnt": "4.0.3",
