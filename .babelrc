@@ -1,11 +1,15 @@
 {
 	"presets": [
-		["@babel/preset-env", {
-			"targets": {
-				"node": "current",
-				"browsers": "last 4 versions"
+		[
+			"@babel/preset-env",
+			{
+				"modules": false,
+				"targets": {
+					"node": "current",
+					"browsers": "last 4 versions"
+				}
 			}
-		}]
+		]
 	],
 	"plugins": ["babel-plugin-styled-components"]
 }

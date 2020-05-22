@@ -1,7 +1,4 @@
-const {
-	BreakpointNotFoundError,
-	NextBreakpointNotFoundError
-} = require('./errors');
+import {BreakpointNotFoundError, NextBreakpointNotFoundError} from './errors';
 
 class Media {
 	constructor(sizes) {
@@ -37,6 +34,7 @@ class Media {
 		}
 
 		const nextBreakpoint = this._next(breakpoint);
+
 		if (!this._isBreakpoint(nextBreakpoint)) {
 			throw new NextBreakpointNotFoundError(breakpoint);
 		}
@@ -59,10 +57,11 @@ class Media {
 
 	only(breakpoint) {
 		const nextBreakpoint = this._next(breakpoint);
+
 		return this._isBreakpoint(nextBreakpoint) ?
 			this.between(breakpoint, nextBreakpoint) :
 			this.up(breakpoint);
 	}
 }
 
-module.exports = (sizes) => new Media(sizes);
+export default (sizes) => new Media(sizes);

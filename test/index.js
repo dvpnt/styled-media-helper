@@ -1,9 +1,10 @@
-const styled = require('styled-components').default;
-const t = require('tap');
-const Media = require('../src');
-const {
-	BreakpointNotFoundError, NextBreakpointNotFoundError
-} = require('../src/errors');
+import styled from 'styled-components';
+import t from 'tap';
+import Media from '../src';
+import {
+	BreakpointNotFoundError,
+	NextBreakpointNotFoundError
+} from '../src/errors';
 
 t.test('Media class', (t) => {
 	const sizes = {
@@ -34,7 +35,8 @@ t.test('Media class', (t) => {
 
 		t.matchSnapshot(
 			styled.div`${media.up('xs')} {color: #000;}`,
-			'right breakpoint');
+			'right breakpoint'
+		);
 
 		t.end();
 	});
