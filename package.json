@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "lint": "eslint ./",
+    "spellcheck": "yaspeller *.md",
     "test": "tap test/*.js --bail --coverage --coverage-report=text --100 --reporter specy",
     "clean": "rm -rf ./dist",
     "build": "npm run clean && babel src --out-dir dist/",
@@ -43,7 +44,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "4.1.3",
-    "tap": "14.10.7"
+    "tap": "14.10.7",
+    "yaspeller": "7.0.0"
   },
   "peerDependencies": {
     "styled-components": "3.3.3 - 5"
