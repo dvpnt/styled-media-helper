@@ -14,8 +14,8 @@ Inspired by [Bootstrap](https://getbootstrap.com/) `media-breakpoint-...` mixins
 ## Usage
 
 ```js
-const styled = require('styled-components').default;
-const mediaHelper = require('styled-media-helper');
+import styled from 'styled-components';
+import mediaHelper from 'styled-media-helper';
 
 const media = mediaHelper({
   sm: 320,
@@ -23,7 +23,7 @@ const media = mediaHelper({
   lg: 1240
 });
 
-module.exports = styled.div`
+export default styled.div`
   width: 100px;
   height: 100px;
   background-color: blue;
