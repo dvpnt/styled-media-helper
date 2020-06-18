@@ -9,6 +9,14 @@ node_js:
   - 8
 
 script:
-  - npm run lint
-  - npm run spellcheck
-  - npm run test -- --coverage-report=text-lcov --reporter=classic --color
+  - >
+    version=`node --version | cut -d 'v' -f 2 | cut -d '.' -f 1`
+
+    if [ $version -eq 14 ]; then
+      npm run lint
+      npm run spellcheck
+      npm run test -- --coverage-report=text-lcov --reporter=classic --color
+    else
+      echo "*** skip other commands to speed up build ***"
+      npm run test
+    fi;
