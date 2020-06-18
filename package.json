@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint ./",
     "spellcheck": "yaspeller *.md",
-    "test": "tap test/*.js --bail --coverage --coverage-report=text --100 --reporter specy",
+    "test": "tap test/*.js --bail --reporter specy --no-coverage",
+    "coverage": "npm run test -- --coverage --coverage-report=text --100",
     "clean": "rm -rf ./dist",
     "build": "npm run clean && babel src --out-dir dist/",
     "prepare": "npm run build"
