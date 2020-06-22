@@ -1,6 +1,13 @@
 {
 	"lang": "en",
+	"ignoreCapitalization": true,
 	"dictionary": [
-		"mixins"
+		"Changelog",
+		"ES",
+		"Unreleased",
+		"Versioning",
+		"devDependencies",
+		"mixins",
+		"peerDependencies"
 	]
 }
