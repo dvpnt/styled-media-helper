@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.js TAP Media class between > right breakpoints 1`] = `
+exports[`test/index.ts TAP Media class between > right breakpoints 1`] = `
 Object {
   "$$typeof": Symbol(react.forward_ref),
   "attrs": Array [],
@@ -13,8 +13,9 @@ Object {
     "componentId": "sc-htpNat",
     "isStatic": true,
     "rules": Array [
+      "\\n        ",
       "@media (min-width: 20px) and\\n\\t\\t\\t(max-width: 99.98px)",
-      " {color: #000;}",
+      " {\\n          color: #000;\\n        }\\n      ",
     ],
   },
   "displayName": "styled.div",
@@ -28,7 +29,7 @@ Object {
 }
 `
 
-exports[`test/index.js TAP Media class down > right breakpoint 1`] = `
+exports[`test/index.ts TAP Media class down > right breakpoint 1`] = `
 Object {
   "$$typeof": Symbol(react.forward_ref),
   "attrs": Array [],
@@ -36,8 +37,9 @@ Object {
     "componentId": "sc-bwzfXH",
     "isStatic": true,
     "rules": Array [
+      "\\n        ",
       "@media (max-width: 99.98px)",
-      " {color: #000;}",
+      " {\\n          color: #000;\\n        }\\n      ",
     ],
   },
   "displayName": "styled.div",
@@ -51,7 +53,7 @@ Object {
 }
 `
 
-exports[`test/index.js TAP Media class only success > with next breakpoint 1`] = `
+exports[`test/index.ts TAP Media class only success > with next breakpoint 1`] = `
 Object {
   "$$typeof": Symbol(react.forward_ref),
   "attrs": Array [],
@@ -59,8 +61,9 @@ Object {
     "componentId": "sc-ifAKCX",
     "isStatic": true,
     "rules": Array [
+      "\\n          ",
       "@media (min-width: 20px) and\\n\\t\\t\\t(max-width: 99.98px)",
-      " {color: #000;}",
+      " {\\n            color: #000;\\n          }\\n        ",
     ],
   },
   "displayName": "styled.div",
@@ -74,7 +77,7 @@ Object {
 }
 `
 
-exports[`test/index.js TAP Media class only success > without next breakpoint 1`] = `
+exports[`test/index.ts TAP Media class only success > without next breakpoint 1`] = `
 Object {
   "$$typeof": Symbol(react.forward_ref),
   "attrs": Array [],
@@ -82,8 +85,9 @@ Object {
     "componentId": "sc-bxivhb",
     "isStatic": true,
     "rules": Array [
+      "\\n          ",
       "@media (min-width: 100px)",
-      " {color: #000;}",
+      " {\\n            color: #000;\\n          }\\n        ",
     ],
   },
   "displayName": "styled.div",
@@ -97,7 +101,7 @@ Object {
 }
 `
 
-exports[`test/index.js TAP Media class up > right breakpoint 1`] = `
+exports[`test/index.ts TAP Media class up > right breakpoint 1`] = `
 Object {
   "$$typeof": Symbol(react.forward_ref),
   "attrs": Array [],
@@ -105,8 +109,9 @@ Object {
     "componentId": "sc-bdVaJa",
     "isStatic": true,
     "rules": Array [
+      "\\n        ",
       "@media (min-width: 20px)",
-      " {color: #000;}",
+      " {\\n          color: #000;\\n        }\\n      ",
     ],
   },
   "displayName": "styled.div",
